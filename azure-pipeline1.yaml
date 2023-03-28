@@ -31,7 +31,7 @@ stages:
             displayName: 'Bash Script'
             inputs:
               targetType: 'inline'
-              script: 'sh dev.sh'
+              script: 'ls -al'
 
 - stage: knimeDestroy
   jobs:
