@@ -21,6 +21,8 @@ stages:
     displayName: run bash script
     pool:
       vmImage: 'Ubuntu-latest'
+    # creates an environment if it doesn't exist
+    environment: 'knime_create'
     strategy:
       runOnce:
         deploy:
@@ -34,7 +36,7 @@ stages:
     pool:
       vmImage: 'Ubuntu-latest'
     # creates an environment if it doesn't exist
-    environment: 'dev'
+    environment: 'knime_destroy'
     strategy:
       runOnce:
         deploy:
