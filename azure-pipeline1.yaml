@@ -10,7 +10,15 @@ name: Run bash scripts
 
 variables:
   vmImageName: 'ubuntu-latest'
-  
+
+parameters:
+- name: cluster_name
+  displayName: Cluster name
+  type: string
+- name: cluster_location
+  displayName: Cluster location
+  type: string
+
 pool:
   vmImage: $(vmImageName)
 
@@ -33,7 +41,7 @@ stages:
           - task: ShellScript@2
             inputs:
               scriptPath: '$(System.DefaultWorkingDirectory)/dev.sh' # string. Required. Script Path. 
-              args: file1 file2 # string. Arguments. 
+              args: ${{ parameters.cluster_name }} ${{ parameters.cluster_location }} # string. Arguments. 
                  
 - stage: knimeDestroy
   jobs:
