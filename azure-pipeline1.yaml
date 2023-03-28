@@ -15,9 +15,21 @@ pool:
   vmImage: $(vmImageName)
 
 stages:
-- stage: deploy
+- stage: knime create
   jobs:
-  - deployment: DeployWeb
+  - deployment: knimeDeploy
+    displayName: run bash script
+    pool:
+      vmImage: 'Ubuntu-latest'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - script: echo Hello world
+
+- stage: knime destroy
+  jobs:
+  - deployment: knimeDestroy
     displayName: run bash script
     pool:
       vmImage: 'Ubuntu-latest'
