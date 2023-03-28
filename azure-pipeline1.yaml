@@ -15,7 +15,7 @@ pool:
   vmImage: $(vmImageName)
 
 stages:
-- stage: knime create
+- stage: knimeCreate
   jobs:
   - deployment: knimeDeploy
     displayName: run bash script
@@ -27,7 +27,7 @@ stages:
           steps:
           - script: echo Hello world
 
-- stage: knime destroy
+- stage: knimeDestroy
   jobs:
   - deployment: knimeDestroy
     displayName: run bash script
