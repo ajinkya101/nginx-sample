@@ -1,0 +1,30 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger: none
+# - main
+
+name: Run bash scripts
+
+variables:
+  vmImageName: 'ubuntu-latest'
+  
+pool:
+  vmImage: $(vmImageName)
+
+stages:
+- stage: deploy
+  jobs:
+  - deployment: DeployWeb
+    displayName: run bash script
+    pool:
+      vmImage: 'Ubuntu-latest'
+    # creates an environment if it doesn't exist
+    environment: 'dev'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - script: echo Hello world
