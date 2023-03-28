@@ -27,7 +27,11 @@ stages:
       runOnce:
         deploy:
           steps:
-          - script: echo Hello world
+          - task: Bash@3
+            displayName: 'Bash Script'
+            inputs:
+              targetType: 'filePath'
+              filePath: dev.sh
 
 - stage: knimeDestroy
   jobs:
