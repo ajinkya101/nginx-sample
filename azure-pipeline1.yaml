@@ -27,12 +27,13 @@ stages:
       runOnce:
         deploy:
           steps:
-          - task: Bash@3
-            displayName: 'Bash Script'
+          # Shell script v2
+          # Run a shell script using Bash.
+          - task: ShellScript@2
             inputs:
-              targetType: 'inline'
-              script: 'ls -al'
-
+              scriptPath: '$(System.DefaultWorkingDirectory)/dev.sh' # string. Required. Script Path. 
+              #args: # string. Arguments. 
+                 
 - stage: knimeDestroy
   jobs:
   - deployment: knimeDestroy
