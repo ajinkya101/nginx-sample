@@ -33,7 +33,7 @@ stages:
           - task: ShellScript@2
             inputs:
               scriptPath: '$(System.DefaultWorkingDirectory)/dev.sh' # string. Required. Script Path. 
-              #args: # string. Arguments. 
+              args: file1 file2 # string. Arguments. 
                  
 - stage: knimeDestroy
   jobs:
