@@ -27,8 +27,6 @@ stages:
   jobs:
   - deployment: knimeDeploy
     displayName: run bash script
-    pool:
-      vmImage: 'Ubuntu-latest'
     # creates an environment if it doesn't exist
     environment: 'knime_create'
     strategy:
@@ -47,8 +45,6 @@ stages:
   jobs:
   - deployment: knimeDestroy
     displayName: run bash script
-    pool:
-      vmImage: 'Ubuntu-latest'
     # creates an environment if it doesn't exist
     environment: 'knime_destroy'
     strategy:
